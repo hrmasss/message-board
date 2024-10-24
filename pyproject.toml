@@ -1,0 +1,12 @@
+[tool.poetry]
+name = "message-board"
+version = "0.1.0"
+description = "A Django-based anonymous message board web application."
+authors = ["Hojayfa Rahman <hojayfarahman@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.1.1"
+python-dotenv = "^1.0.1"
