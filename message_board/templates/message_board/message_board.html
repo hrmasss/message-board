@@ -1,0 +1,40 @@
+{% extends "message_board/base.html" %}
+
+{% block content %}
+  <main class="max-w-7xl mx-auto p-4 sm:p-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
+      <!-- Mesage form card -->
+      <div class="bg-card p-4 rounded-sm shadow-md flex flex-col h-[250px]">
+        <form hx-post="{% url 'message_board:create_message' %}"
+              hx-target="#message-list"
+              hx-swap="afterbegin"
+              class="flex flex-col h-full">
+          {% csrf_token %}
+          <textarea name="content"
+                    class="flex-grow w-full p-3 border-none focus:ring-0 rounded-lg resize-none bg-inherit"
+                    placeholder="Write your message..."
+                    required></textarea>
+          <button type="submit"
+                  class="ml-auto mt-2 px-4 py-1 text-primary bg-background shadow-sm rounded-full hover:bg-primary hover:text-background transition duration-150">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 fill="currentColor"
+                 viewBox="0 0 256 256"
+                 class="size-6">
+              <path d="M227.91,134.86,59.93,231a8,8,0,0,1-11.44-9.67L80,128,48.49,34.72a8,8,0,0,1,11.44-9.67l168,95.85A8,8,0,0,1,227.91,134.86Z" opacity="0.2">
+              </path>
+              <path d="M231.87,114l-168-95.89A16,16,0,0,0,40.92,37.34L71.55,128,40.92,218.67A16,16,0,0,0,56,240a16.15,16.15,0,0,0,7.93-2.1l167.92-96.05a16,16,0,0,0,.05-27.89ZM56,224a.56.56,0,0,0,0-.12L85.74,136H144a8,8,0,0,0,0-16H85.74L56.06,32.16A.46.46,0,0,0,56,32l168,95.83Z">
+              </path>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Messages container -->
+      <div id="message-list" class="contents">
+        {% for message in messages %}
+          {% include "message_board/message_card_partial.html" %}
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+{% endblock content %}

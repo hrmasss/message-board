@@ -5,12 +5,12 @@
 
   <style>
     path {
-      stroke: #000;
+      fill: #000;
     }
 
     @media (prefers-color-scheme: dark) {
       path {
-        stroke: #FFF;
+        fill: #FFF;
       }
     }
   </style>
