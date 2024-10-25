@@ -1,0 +1,38 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      {% block title %}
+        Message Board
+      {% endblock title %}
+    </title>
+
+    {# Required meta tags #}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/svg+xml" href="{% static 'favicon.svg' %}">
+
+    {# SEO meta tags #}
+    <meta name="description"
+          content="A Django-based anonymous message board web application">
+    <meta name="keywords" content="message board">
+
+    {# CSS #}
+    {% tailwind_css %}
+
+    {# JavaScript #}
+    <script src="https://unpkg.com/htmx.org@2.0.3"></script>
+
+    {# Additional head elements #}
+    {% block extra_head %}
+    {% endblock extra_head %}
+  </head>
+
+  <body>
+    {% block content %}
+    {% endblock content %}
+  </body>
+</html>
