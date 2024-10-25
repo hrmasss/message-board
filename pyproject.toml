@@ -10,6 +10,7 @@ package-mode = false
 python = "^3.12"
 django = "^5.1.1"
 python-dotenv = "^1.0.1"
+dj-database-url = "^2.3.0"
 
 [tool.poetry.group.dev.dependencies]
 django-tailwind = {extras = ["reload"], version = "^3.8.0"}

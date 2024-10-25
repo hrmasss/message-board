@@ -88,19 +88,6 @@ A Django-based web application that allows users to post anonymous messages in a
     docker-compose exec web python manage.py migrate
     ```
 
-### Production Deployment
-
-1. **Build Production Image**
-
-    ```bash
-    docker build -t message-board:latest .
-    ```
-
-2. **Run Production Stack**
-    ```bash
-    docker-compose -f docker-compose.prod.yml up -d
-    ```
-
 ## Project Structure
 
 ```
@@ -127,17 +114,6 @@ message-board/
 
 ## Development
 
-### Running Tests
-
-```bash
-# Run tests
-python manage.py test
-
-# With coverage
-coverage run manage.py test
-coverage report
-```
-
 ### Building Static Files
 
 ```bash
@@ -148,32 +124,6 @@ python manage.py tailwind start
 python manage.py tailwind build
 python manage.py collectstatic --noinput
 ```
-
-## Docker Usage
-
-### Development
-
-```bash
-# Start development environment
-docker-compose up --build
-
-# Run migrations
-docker-compose exec web python manage.py migrate
-```
-
-### Production
-
-```bash
-# Build and run production stack
-docker-compose -f docker-compose.prod.yml up -d
-
-# View logs
-docker-compose -f docker-compose.prod.yml logs -f
-
-# Scale web workers
-docker-compose -f docker-compose.prod.yml up --scale web=3 -d
-```
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
